@@ -7,4 +7,4 @@ fi
 
 gem install rspec
 rspec --init
-
+rspec -f d rspec/*_spec.rb
