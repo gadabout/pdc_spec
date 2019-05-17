@@ -1,5 +1,4 @@
-require "selenium-webdriver"
-require "rspec"
+require_relative 'peek_helper'
 
 # Feature: As a consumer visiting Peek.com I would like to be able to search for activities near me
 #  - Search filters correctly apply after initial search
@@ -21,10 +20,7 @@ describe "Peek.com landing page funtionality" do
   end
 
   it "should search for San Francisco Peninsula as destination city" do
-    @driver.find_element(:class, 'geosuggest__input').send_keys(SEARCHLOCATION)
-    @driver.find_element(:class, 'components-Forms-Search-style---homeDatePicker').click
-    @driver.find_element(:class, 'components-Forms-Search-style---homeButton').click
-    sleep 5
+    main_search(SEARCHLOCATION)
     locationResult=@driver.find_element(:css, '.containers-Search-styles---regionName > span > strong').text
     expect(locationResult).to eql(SEARCHLOCATION)
   end
