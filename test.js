@@ -22,7 +22,7 @@ describe('Tests for https://www.peek.com', function() {
 	});
 
 
-//*
+
 	// Spec 1
 	describe('As a consumer visiting Peek.com I would like to be able to search for activities near me', function() {	
 
@@ -80,7 +80,7 @@ describe('Tests for https://www.peek.com', function() {
 //	*/
 
 
-//*
+
 	// Spec 2
 	describe('As a consumer visiting Peek.com I would like to take a personality quiz to cater search results to my preferences', function() {
 
@@ -138,7 +138,7 @@ describe('Tests for https://www.peek.com', function() {
 			await browser.findElement(webdriver.By.className('components-GdprPrompt-style---closeButton')).click()
 			
 			for (var i = 0; i < data.spec3.input.ticketsMax; i++) {
-				await browser.wait(webdriver.until.elementLocated(webdriver.By.xpath('//i[@class="fa fa-plus"]/..')), waitTimeout).click()			
+				await browser.wait(webdriver.until.elementIsVisible(await browser.wait(webdriver.until.elementLocated(webdriver.By.xpath('//i[@class="fa fa-plus"]/..')), waitTimeout)), waitTimeout).click()			
 			}			
 //			await browser.wait(webdriver.until.elementLocated(webdriver.By.className('text-danger')), waitTimeout)
 			await browser.wait(webdriver.until.elementLocated(webdriver.By.css('.padding-md button:disabled')), waitTimeout)			
@@ -169,6 +169,7 @@ describe('Tests for https://www.peek.com', function() {
 			assert.equal(resultDate1, resultDate2)
 			assert.equal(resultTime1, resultTime2)
 		});
+		
 	});
 //	*/
 
