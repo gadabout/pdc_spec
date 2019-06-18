@@ -14,4 +14,18 @@ Good luck!
 
 ## Notes
 
-Notes go here.
+This repository contains code to leverage Selenium Webdriver (JS) to test aspects of the Peek.com website.
+
+Please download test.js, data.js, and package.json from this repository.  In addition, install the following:
+Node.js (v10.15.0)
+npm (6.4.1)
+selenium-webdriver (4.0.0-alpha.1)  (installed locally, via 'npm install selenium-webdriver')
+Mocha (6.1.4)  (installed locally, via 'npm install --save-dev mocha')
+chromedriver (if running Chrome) for the OS of the target computer
+geckodriver (if running Firefox) for the OS of the target computer
+
+To run, type 'npm test'.
+
+
+
+
