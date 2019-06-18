@@ -9,10 +9,8 @@ exports.spec1 = {
 			searchTerm: 'New York',
 			
 			// For search filter test, check on these checkboxes.
-			filter: [
-				'Under $50'
-				]
-		},
+			filter: 'Under $50'
+				},
 		output: {
 			// For search filter test, verify the number of results after the filter(s) is checked.
 			results: 84,

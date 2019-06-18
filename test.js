@@ -47,9 +47,7 @@ describe('Tests for https://www.peek.com', function() {
 //			var results1 = parseInt(await element.getText())
 			
 			// Set the filters.
-			for (var i = 0; i < data.spec1.input.filter.length; i++) {
-				await browser.findElement(webdriver.By.css('input[name="' + data.spec1.input.filter[i] +'"]')).click()				
-			}
+			await browser.findElement(webdriver.By.css('input[name="' + data.spec1.input.filter +'"]')).click()				
 			
 			// Wait for results count to go stale, then get the new results.
 			await browser.wait(webdriver.until.stalenessOf(element))
