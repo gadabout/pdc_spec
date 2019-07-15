@@ -1,0 +1,87 @@
+Michael McGreevy 071519
+
+My solution to the Peek user stories are written in Python v3.7.1 /Selenium v3.141.0 on a Mac (macOS 10.12.6).
+
+All scripts were written for Firefox version 67.0.4
+
+To run the scripts ensure PyTest is install and from a Terminal command line type, "pytest peek_*.py".  Individual result log files
+will automatically be created for each script.
+
+
+
+
+
+***************************************************************************************************************************
+peek_search_activity.py
+Written by Michael McGreevy 071319
+
+This script tests the following user story:
+Feature: As a consumer visiting Peek.com I would like to be able to search for activities near me
+	* Categories appear based on location inventory
+	* Search filters correctly apply after initial search
+
+
+For the first item, two criteria must be passed: the web page rendered after the initia search is performed 
+must contain the original search criteria (e.g., "Costa Rica") and the number of associated activities mentioned in two locations
+(e.g., "13 Things to do in/Costa Rica" and "All Activities 13/Adventures") on the rendered page must equal other.
+
+For the second item, a price range filter is applied after the location region has been searched for.  A check is then performed 
+that only activities whose price falls in the range are displayed.
+
+There are a couple of weaknesses that should be noted with these tests:
+1) The tests for the first item, above, assumes the returned activities are correct if the text of (for example) 
+	"13 things to do in/Costa Rica" and "All Activities/13 Adventures"(if Costa Rica was the original search criteria) is displayed.
+	What if the text is displayed but the rendered web page is displaying activities for a different region?
+2) When testing the price range filter, the script assumes there are < 21 activities associted with the original search criteria.
+If there are more activities (e.g., as there are with San Francisco), the test will fail, since multiple pages will be returned.  
+	The script currently only works with one page of activities.
+
+To help counteract these weaknesses, the script runs through 4 different sets of data.  With the exception of San Francisco, these 
+data were all picked to have fewer than 21 associated activities.  SF will intentionally fail, to verify a graceful recovery and
+to verify failure notification.
+
+
+Note all results are logged to a text file called "search_activites.txt", located in the same directory as the script.
+
+TODO for improvements:
+* Add an outer nested loop to use all common web browsers/drivers
+* Add checks for all price ranges
+* Support geo regions with more than 20 activities (multiple pages)
+* Add additional try/except error checking
+* Possibly split test out into indie functions to improve readibility and portability
+
+
+***************************************************************************************************************************
+peek_personality_quiz.py
+Written by Michael McGreevy 071419
+
+Feature: As a consumer visiting Peek.com I would like to take a personality quiz to cater search results to my preferences
+* When completed, the quiz should provide a search form - when I search I should see my classification listed at the top of my search results
+
+This script runs through two personality quizzes and logs the results in a file called, 'personality_quiz.txt', found in the same
+directory as the script.
+
+The lists nature_choices and insider_choices govern which picture selections the script should run.  One or the other of these lists will
+be used, depending on whether the script is on the first or second iteration of the 'for i in range(2)' outer nested loop.  These two choice 
+lists cover selecting all pictures.
+
+The user story calls for a search to be performed after the quiz is completed.  I had difficulty finding a unique, keyboard accessible
+web element corresponding to the search box.  Instead, I opted to leave the search box blank (a generic 'search'?) and just hit the search button.
+
+TODO for improvements:
+* Find a way to access the search box
+* Include more error checking
+* Add an outer nested loop to use all common web browsers/drivers
+
+
+***************************************************************************************************************************
+peek_book_activity.py
+Written by Michael McGreevy 071419
+
+Feature: As a consumer visiting Peek.com I would like to be able to book an activity
+* The activity's calendar widget populates with bookable days
+* Increasing the number of selected tickets beyond the availability prevents me from booking that timeslot
+* The "Book Now" Button opens a widget flow with my timeslot and ticket(s) selected at checkout
+
+Unfortunately, I ran out of time -- this script is only about 2/3's completed.  There are various TODO comments throughout
+
