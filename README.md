@@ -15,3 +15,20 @@ Good luck!
 ## Notes
 
 Notes go here.
+
+To peek reviewer,
+
+To run tests, go to terminal `$ npm test`. This will execute tests within the specs directory. Ensure you have dependencies installed prior `$ npm install`.
+
+Dependencies can be found in package.json file. The dependencies I chose for this project are:
+babel - allows contributors to code in the lastest EMCAScript
+webdriverio - an implementation of Selenium
+mocha - provides test structure
+chai - assertion library
+allure - test reporting
+
+This framework follows the Page Object Model design pattern where a page object is an object-oriented class that serves as an interface to a page of a web application being tested. To make configurations to this framework, open wdio.conf.js file. There are notes within this file.
+
+Once tests finish execution, you can see see logs and reports located in output directory.
+
+Please don't hestitate to ask me any questions!
