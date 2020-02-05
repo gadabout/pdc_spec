@@ -14,4 +14,13 @@ Good luck!
 
 ## Notes
 
-Notes go here.
+How to run:
+
+python3 -m unittest discover qa_automation_framework_peek
+
+Requirements:  
+- ChromeDriver 
+- Python 3.8.0
+- Selenium Webdriver 3.14.1
+
+
