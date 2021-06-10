@@ -1,8 +1,8 @@
 # Peek.com Specs
 
-A repository for creating test automation for www.peek.com
+A repository for creating test automation for [Peek.com/experiences](https://www.peek.com/experiences).
 
-![](peek-squarelogo.png)
+![Peek Logo](peek-squarelogo.png)
 
 ## How to use this repo
 
